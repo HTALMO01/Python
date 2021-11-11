@@ -1,0 +1,44 @@
+def interest(principal, rate, time):
+    pint = int(principal)
+    rint = (rate / 100)
+    tint = time
+    amount = pint * (1 + rint * tint)
+    print(f'The amount is {amount}')
+    return interest
+
+def monthly(principal, rate, time):
+    pint = int(principal)
+    rint = (rate / 100)
+    tint = time
+    interest = (pint * rint * tint) / (100*12)
+    print(f'The amount is {interest}')
+    return monthly
+
+def compound(principal, rate, time, number):
+    pint = int(principal)
+    rint = (rate / 100)
+    tint = time
+    nint = int(number)
+    interest = pint * (1 + (rint / nint)) ** (nint * tint)
+    print(f'The amount is {interest}')
+    return compound
+
+x = input('Simple or monthly or compound interest: ').lower()
+p = input('Principal: ')
+r = int(input('Rate (percent): '))
+t = input('Time: ').lower()
+if t == 'daily':
+    t = 1
+if t == 'weekly':
+    t = 7
+if t == 'monthly':
+    t = 30
+if t == 'yearly':
+    t = 365
+if x == 'monthly' or x == 'monthly interest':
+    monthly(p,r,t)
+if x == 'simple interest' or x == 'simple':
+    interest(p,r,t)
+if x == 'compund interest' or x == 'compound':
+    n = input(f'Number of times interest is applied per time: ')
+    compound(p,r,t,n)
