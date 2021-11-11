@@ -1,0 +1,28 @@
+#OOP
+
+
+class NFL: 
+    def __init__(self, Preseason, Season, PostSeason):
+        self.Preseason = Preseason
+        self.Season = Season
+        self.PostSeason = PostSeason
+
+class Bengals(NFL):
+    City = 'Cincinnati'
+    StadiumName = 'Paul Brown'
+    def __init__(self, wins, losses, ties, mascot):
+        self.wins = wins
+        self.losses = losses
+        self.ties = ties
+        self.mascot = mascot
+        probability = round((self.wins) / (self.losses + self.wins) * 100)
+        best = 17 - self.losses
+        print(f"The Bengals mascot is {mascot}")
+        print(f"The Bengals have {wins} wins.")
+        print(f'The Bengals have a {probability}% chance of winning.')
+        print(f'The most amount of scores the bengals can get is {best} wins. ')
+        print(f'The Bengals has {NL.Season} games in a regular season.')
+
+NL = NFL(3,17,0)
+be = Bengals(5, 2, 0, 'Who Dey')
+
