@@ -1,0 +1,56 @@
+import time
+import random
+player1 = input('Enter player one name: ')
+player2 = 'Elmo'
+x = 0
+y = 0
+time.sleep(.5)
+print('Just a reminder, if you wish to quit, simply type quit.')
+time.sleep(0.5)
+while True:
+    player1choice = input(f'{player1}, paper, rock, or scissors? ').lower()
+    if player1choice == 'quit':
+        break
+    if player1choice == 'paper' or player1choice == 'rock' or player1choice == 'scissors':
+        b = False
+    else:
+        b = True
+        while b:
+            print('That is not an option, please try again.')
+            time.sleep(1)
+            player1choice = input(f'{player1} Paper, rock, or scissors?  ').lower()
+            if player1choice == 'rock' or player1choice == 'paper' or player1choice == 'scissors':
+                b = False
+    player2choice = random.choice(['paper', 'rock', 'scissors'])
+    time.sleep(0.5)
+    print(f'Elmo chooses  {player2choice}')
+    time.sleep(1)
+    if player1choice == player2choice:
+        print('Tie!')
+    elif player1choice == 'paper' and player2choice == 'rock':
+        print(f'{player1} wins! ')
+        x += 1
+    elif player1choice == 'paper' and player2choice == 'scissors':
+        print(f'{player2} wins!')
+        y += 1
+    elif player1choice == 'rock' and player2choice == 'paper':
+        print(f'{player2} wins!')
+        y += 1
+    elif player1choice == 'rock' and player2choice == 'scissors':
+        print(f'{player1} wins!')
+        x += 1
+    elif player1choice == 'scissors' and player2choice == 'paper':
+        print(f'{player1} wins! ')
+        x += 1
+    elif player1choice == 'scissors' and player2choice == 'rock':
+        print(f'{player2} wins! ')
+        y += 1
+    print(f'{player1} has {x} points and {player2} has {y} points.')
+    time.sleep(1)
+if x > y:
+    print(f'{player1} wins!')
+elif y > x:
+    print(f'{player2} wins!')
+elif y == x:
+    print("It's a tie!")
+print(f'Final score was {x} points for {player1} and {y} points for {player2}')
